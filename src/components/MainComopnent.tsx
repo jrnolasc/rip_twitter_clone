@@ -8,14 +8,14 @@ import { IoStatsChart, IoShareOutline } from "react-icons/io5";
 const MainComopnent = () => {
   return (
     <main
-      className="ml-[275px] flex w-[600px] h-full min-h-screen flex-col border-l-[0.5px] border-r-[0.5px]
+      className="flex w-[50%] h-full min-h-screen flex-col border-l-[0.5px] border-r-[0.5px]
 border-gray-600"
     >
       <h1 className="text-xl font-bold p-6 backdrop-blur bg-black/10 sticky top-0">
         Home
       </h1>
       <div
-        className="border-t-[.5px] px-4 py-4 border-b-[.5px] border-gray-600
+        className="border-t-[.5px] px-4 py-6 border-b-[.5px] border-gray-600
   relative flex items-stretch space-x-2"
       >
         <div className="w-11 h-11 bg-slate-400 rounded-full flex-none"></div>
