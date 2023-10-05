@@ -5,6 +5,9 @@ import { BsBell, BsBookmark, BsThreeDots } from "react-icons/bs";
 import { HiOutlineHashtag } from "react-icons/hi";
 import { HiEnvelope } from "react-icons/hi2";
 import { PiHamburger } from "react-icons/pi";
+import { getTweets } from "@/lib/supabase/queries";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 const Navigation_Items = [
   {
@@ -37,9 +40,17 @@ const Navigation_Items = [
   },
 ];
 
-const LeftSidebar = () => {
+const LeftSidebar = async () => {
+  const res = await getTweets();
+  const supabaseClient = createServerComponentClient({
+    cookies,
+  });
+
+  const { data: userData, error: userError } =
+    await supabaseClient.auth.getUser();
+
   return (
-    <section className="w-[23%] flex flex-col h-screen items-stretch sticky top-0">
+    <section className="w-[23%] xl:flex hidden flex-col h-screen items-stretch sticky top-0">
       <div className="flex flex-col items-stretch h-full space-y-4 mt-4">
         {Navigation_Items.map((item) => (
           <Link
